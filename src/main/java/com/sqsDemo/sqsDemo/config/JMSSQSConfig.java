@@ -39,7 +39,7 @@ public class JMSSQSConfig {
 
 //        SQSConnectionFactory sqsConnectionFactory = SQSConnectionFactory.builder().withAWSCredentialsProvider(new DefaultAWSCredentialsProviderChain()).withEndpoint(endpoint).withAWSCredentialsProvider(awsCredentialsProvider).withNumberOfMessagesToPrefetch(10).build();
 
-        SQSConnectionFactory sqsConnectionFactory = new SQSConnectionFactory(
+        var sqsConnectionFactory = new SQSConnectionFactory(
                 new ProviderConfiguration(),
                 AmazonSQSClientBuilder.standard()
                         .withRegion(REGION)
@@ -60,7 +60,7 @@ public class JMSSQSConfig {
 
 //        SQSConnectionFactory sqsConnectionFactory = SQSConnectionFactory.builder().withAWSCredentialsProvider(awsCredentialsProvider).withEndpoint(endpoint).withNumberOfMessagesToPrefetch(10).build();
 
-        SQSConnectionFactory sqsConnectionFactory = new SQSConnectionFactory(
+        var sqsConnectionFactory = new SQSConnectionFactory(
                 new ProviderConfiguration(),
                 AmazonSQSClientBuilder.standard()
                         .withRegion(REGION)

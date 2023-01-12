@@ -30,7 +30,7 @@ public class SQSConfig {
     @Bean
     public AmazonSQSClient createSQSClient() {
 
-        AWSCredentials awsCredentials = new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY);
+        var awsCredentials = new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY);
         AmazonSQS sqsClient = AmazonSQSClient.builder().withRegion(Regions.US_EAST_1)
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).build();
 
@@ -39,7 +39,7 @@ public class SQSConfig {
         return (AmazonSQSClient) sqsClient;
     }
     private String createQueue(AmazonSQS sqsClient) {
-        CreateQueueRequest createQueueRequest = new CreateQueueRequest(queueName);
+        var createQueueRequest = new CreateQueueRequest(queueName);
         CreateQueueResult queueResult = sqsClient.createQueue(createQueueRequest);
         System.out.println(queueResult.getQueueUrl());
         return queueResult.getQueueUrl();

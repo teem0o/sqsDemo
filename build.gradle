@@ -24,9 +24,10 @@ dependencies {
 //	implementation group: 'com.amazonaws', name: 'aws-java-sdk-sqs', version: '1.11.887'
 	implementation group: 'com.amazonaws', name: 'amazon-sqs-java-messaging-lib', version: '1.0.8'
 	implementation group: 'org.springframework', name: 'spring-jms', version: '5.2.9.RELEASE'
-	compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+//	compileOnly group: 'software.amazon.awssdk', name: 'aws-sdk-java', version: '2.19.13'
+	implementation group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.12.382'
 
-	compileOnly group: 'software.amazon.awssdk', name: 'aws-sdk-java', version: '2.19.13'
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 }
 
 tasks.named('test') {

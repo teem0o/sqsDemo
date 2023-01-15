@@ -1,5 +1,6 @@
 package com.sqsDemo.sqsDemo.service;
 
+import com.sqsDemo.sqsDemo.config.awsProperties.AwsProperties;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,14 +15,14 @@ class MessageServiceTest {
     @Autowired
     private JmsTemplate jmsTemplate;
 
-    @Value("${cloud.aws.credntials.queue.name}")
-    private String queueName;
+    @Autowired
+    private AwsProperties awsProperties;
 
     @Test
     void sendMessage() {
-        jmsTemplate.send(queueName, session -> session.createTextMessage("test1"));
-        jmsTemplate.send(queueName, session -> session.createTextMessage("test2"));
-//        jmsTemplate.send(queueName, session -> session.createTextMessage("test3"));
+        jmsTemplate.send(awsProperties.getCredentials().getQueuename(), session -> session.createTextMessage("test1"));
+        jmsTemplate.send(awsProperties.getCredentials().getQueuename(), session -> session.createTextMessage("test2"));
+        jmsTemplate.send(awsProperties.getCredentials().getQueuename(), session -> session.createTextMessage("test3"));
 
     }
 }
